@@ -3,14 +3,15 @@
 using namespace std;
 
 int treeHeight(TreeNode <int> *root){
-    if(root==NULL){
-        return 0;
-    }
-    int height=1;
+
+    int height=0;
     for(int i=0;i<root->children.size();i++){
-        treeHeight(root->children[i]);
+        int temp=treeHeight(root->children[i]);
+        if(temp>height){
+            height=temp;
+        }
     }
-    return height;
+    return height+1;
 }
 
 int main()
